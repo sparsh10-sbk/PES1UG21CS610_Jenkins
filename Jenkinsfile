@@ -3,9 +3,7 @@ pipeline {
     stages {
         // stage('Clone repository') {
         //     steps {
-        //         checkout([$class: 'GitSCM',
-        //         branches: [[name: '*/main']],
-        //         userRemoteConfigs: [[url: 'https://github.com/sparsh10-sbk/PES1UG21CS610_Jenkins.git']]])
+        //         checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Jatinsharma159/Jenkins.git']]])
         //     }
         // }
         stage('Build') {
@@ -16,19 +14,21 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './output'
+                // Assuming you have test steps here. Adjust accordingly.
+                sh '.output'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'deploy'
+                // Assuming you have deployment steps here. Adjust accordingly.
             }
         }
     }
     post {
         failure {
-            error 'Pipeline failed'
+            echo 'Pipeline failed'
+            // You can add additional actions to take upon failure here.
         }
     }
 }
-
